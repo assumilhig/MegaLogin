@@ -1,0 +1,10 @@
+C:\shared\sourceCodes\MegaLogin\MegaLogin\bin\Debug\MegaLogin.exe
+C:\shared\sourceCodes\MegaLogin\MegaLogin\bin\Debug\MegaLogin.pdb
+C:\shared\sourceCodes\MegaLogin\MegaLogin\bin\Debug\MegaLogin.xml
+C:\shared\sourceCodes\MegaLogin\MegaLogin\obj\Debug\ResolveAssemblyReference.cache
+C:\shared\sourceCodes\MegaLogin\MegaLogin\obj\Debug\MegaLogin.Form1.resources
+C:\shared\sourceCodes\MegaLogin\MegaLogin\obj\Debug\MegaLogin.Resources.resources
+C:\shared\sourceCodes\MegaLogin\MegaLogin\obj\Debug\MegaLogin.vbproj.GenerateResource.Cache
+C:\shared\sourceCodes\MegaLogin\MegaLogin\obj\Debug\MegaLogin.exe
+C:\shared\sourceCodes\MegaLogin\MegaLogin\obj\Debug\MegaLogin.xml
+C:\shared\sourceCodes\MegaLogin\MegaLogin\obj\Debug\MegaLogin.pdb
