@@ -8,3 +8,13 @@ C:\Shared\sourceCodes\MegaLogin\MegaLogin\obj\Release\MegaLogin.exe
 C:\Shared\sourceCodes\MegaLogin\MegaLogin\obj\Release\MegaLogin.xml
 C:\Shared\sourceCodes\MegaLogin\MegaLogin\obj\Release\MegaLogin.pdb
 C:\Shared\sourceCodes\MegaLogin\MegaLogin\obj\Release\MegaLogin.frmMain.resources
+C:\Users\PSC DEV\source\repos\www\MegaLogin\MegaLogin\obj\Release\MegaLogin.exe
+C:\Users\PSC DEV\source\repos\www\MegaLogin\MegaLogin\obj\Release\MegaLogin.xml
+C:\Users\PSC DEV\source\repos\www\MegaLogin\MegaLogin\obj\Release\MegaLogin.pdb
+C:\Users\PSC DEV\source\repos\www\MegaLogin\MegaLogin\bin\Release\MegaLogin.exe
+C:\Users\PSC DEV\source\repos\www\MegaLogin\MegaLogin\bin\Release\MegaLogin.pdb
+C:\Users\PSC DEV\source\repos\www\MegaLogin\MegaLogin\bin\Release\MegaLogin.xml
+C:\Users\PSC DEV\source\repos\www\MegaLogin\MegaLogin\obj\Release\ResolveAssemblyReference.cache
+C:\Users\PSC DEV\source\repos\www\MegaLogin\MegaLogin\obj\Release\MegaLogin.frmMain.resources
+C:\Users\PSC DEV\source\repos\www\MegaLogin\MegaLogin\obj\Release\MegaLogin.Resources.resources
+C:\Users\PSC DEV\source\repos\www\MegaLogin\MegaLogin\obj\Release\MegaLogin.vbproj.GenerateResource.Cache
