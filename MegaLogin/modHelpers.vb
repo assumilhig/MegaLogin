@@ -1,32 +1,34 @@
 ﻿Imports System.IO
 
 Module modHelpers
+    Public ReadOnly folder As String = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)
+    Public ReadOnly MEGAcmd As String = Path.Combine(folder, "MEGAcmd")
 
-    Public LocalApplicationData As String = Environment.SpecialFolder.LocalApplicationData
-    Public folder As String = Environment.GetFolderPath(LocalApplicationData)
-    Public MEGAcmd As String = Path.Combine(folder, "MEGAcmd")
-
-    Public Function CommandShell(ByVal arguments As String)
+    Public Function CommandShell(ByVal arguments As String) As String
         Dim oProcess As New Process()
-        Dim oStartInfo As New ProcessStartInfo("cmd.exe", arguments)
+        Dim oStartInfo As New ProcessStartInfo("cmd.exe", "/C " & arguments) ' Use /C to execute and exit
+        Dim output As String = ""
 
         With oStartInfo
             .UseShellExecute = False
             .RedirectStandardOutput = True
+            .RedirectStandardError = True ' Capture errors
+            .CreateNoWindow = True
         End With
 
-        With oProcess
-            .StartInfo = oStartInfo
-            .StartInfo.CreateNoWindow = True
-            .Start()
-        End With
+        oProcess.StartInfo = oStartInfo
 
-        Dim sOutput As String
-        Using oStreamReader As System.IO.StreamReader = oProcess.StandardOutput
-            sOutput = oStreamReader.ReadToEnd()
-        End Using
+        Try
+            oProcess.Start()
+            output = oProcess.StandardOutput.ReadToEnd() & oProcess.StandardError.ReadToEnd() ' Capture both output and errors
+            oProcess.WaitForExit()
+        Catch ex As Exception
+            output = "Error: " & ex.Message
+        Finally
+            oProcess.Dispose()
+        End Try
 
-        Return sOutput
+        Return output
     End Function
 
     Private Function ExecuteCommand(ByVal command As String) As String
@@ -36,20 +38,25 @@ Module modHelpers
 
     Public Function CheckSession() As String
         Dim scriptPath As String = Path.Combine(MEGAcmd, "mega-session.bat")
-        Dim command As String = String.Format("cd ""{0}"" & ""{1}""", MEGAcmd, scriptPath)
+        If Not File.Exists(scriptPath) Then Return "Error: mega-session.bat not found"
+
+        Dim command As String = String.Format("cd /D ""{0}"" & ""{1}""", MEGAcmd, scriptPath)
         Return ExecuteCommand(command)
     End Function
 
     Public Function LoginMegaAccount(ByVal Username As String, ByVal Password As String) As String
         Dim scriptPath As String = Path.Combine(MEGAcmd, "mega-login.bat")
+        If Not File.Exists(scriptPath) Then Return "Error: mega-login.bat not found"
 
-        Dim command As String = String.Format("cd ""{0}"" & ""{1}"" ""{2}"" ""{3}""", MEGAcmd, scriptPath, Username, Password)
+        Dim command As String = String.Format("cd /D ""{0}"" & ""{1}"" ""{2}"" ""{3}""", MEGAcmd, scriptPath, Username, Password)
         Return ExecuteCommand(command)
     End Function
 
     Public Function LogoutMegaAccount() As String
         Dim scriptPath As String = Path.Combine(MEGAcmd, "mega-logout.bat")
-        Dim command As String = String.Format("cd ""{0}"" & ""{1}""", MEGAcmd, scriptPath)
+        If Not File.Exists(scriptPath) Then Return "Error: mega-logout.bat not found"
+
+        Dim command As String = String.Format("cd /D ""{0}"" & ""{1}""", MEGAcmd, scriptPath)
         Return ExecuteCommand(command)
     End Function
 End Module
